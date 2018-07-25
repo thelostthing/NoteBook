@@ -1,3 +1,7 @@
+:root {
+  --login-container-radius: 5px;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -5,81 +9,96 @@ html, body {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+.container:before {
+  content: "";
+  z-index: -1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  
+  background-image: url(./bg.png);
+  background-position: center;
+  /* filter: blur(2px); */
+
+  transform: scale(1.1);
+}
 .container {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-image: url(./bg-sm.jpg);
 }
-.container::after {
-  content: '';
-  height: 100%;
+
+
+.info-container, .login-container {
+  height: 80%;
+  padding: 0 40px;
+  
+  display: flex;
+  align-items: center;
+}
+
+.info-container {
+  background-color: hsla(212, 77%, 59%, 0.8);
+  color: white;
+
+  border-top-left-radius: var(--login-container-radius);
+  border-bottom-left-radius: var(--login-container-radius);
+}
+.info-content {
   width: 100%;
-  filter: blur(2px);
-  background: inherit;
+}
+.info-content h1, .info-content p {
+  margin: 0;
+}
+.info-content h1 {
+  font-size: 50px;
+}
+.info-content hr {
+  margin: 20px 0;
+}
+.info-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+.info-content li {
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .login-container {
-  z-index: 1;
-  position: absolute;
-  width: 300px;
-  padding: 40px 30px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0.7);
-  color: white;
-}
+  width: 25%;
+  background-color: white;
 
-.login-container .logo {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -50%);
+  border-top-right-radius: var(--login-container-radius);
+  border-bottom-right-radius: var(--login-container-radius);
 }
-
-.login-container .title {
-  text-align: center;
-}
-
-.login-form label {
-  display: block;
-  font-weight: bold;
-}
-
-.login-form input {
-  margin-bottom: 15px;
+.login-form {
   width: 100%;
-  
-
-  border: 0;
-  outline: none;
-
-  color: white;
-  
-  font-size: 1rem;
 }
-
-.login-form input.username, .login-form input.password {
-  height: 30px;
-  
-  border: 0;
-  border-bottom: 1px solid grey;
-  background-color: transparent;
-  padding: 5px 0;
-
-  font-size: 1rem;
+.login-form h2 {
+  color: grey;
+}
+.login-form input {
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+  padding: 0 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
 }
 
 .login-form input.submit {
-  height: 40px;
-
-  background-color: seagreen;
-  border-radius: 10px;
+  margin-top: 20px;
+  border: 0;
   font-weight: bold;
-}
+  color: white;
+  background-color: hsl(212, 82%, 59%);
+
+  border-radius: 2px;
+} 
 
 .login-form input.submit:hover {
   cursor: pointer;
+  background-color: hsl(212, 100%, 59%);
 }
