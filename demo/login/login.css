@@ -1,0 +1,85 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url(./bg-sm.jpg);
+}
+.container::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  filter: blur(2px);
+  background: inherit;
+}
+
+.login-container {
+  z-index: 1;
+  position: absolute;
+  width: 300px;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+}
+
+.login-container .logo {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.login-container .title {
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  font-weight: bold;
+}
+
+.login-form input {
+  margin-bottom: 15px;
+  width: 100%;
+  
+
+  border: 0;
+  outline: none;
+
+  color: white;
+  
+  font-size: 1rem;
+}
+
+.login-form input.username, .login-form input.password {
+  height: 30px;
+  
+  border: 0;
+  border-bottom: 1px solid grey;
+  background-color: transparent;
+  padding: 5px 0;
+
+  font-size: 1rem;
+}
+
+.login-form input.submit {
+  height: 40px;
+
+  background-color: seagreen;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.login-form input.submit:hover {
+  cursor: pointer;
+}
